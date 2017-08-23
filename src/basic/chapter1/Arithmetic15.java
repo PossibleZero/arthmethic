@@ -1,6 +1,7 @@
 package basic.chapter1;
 
-public class arithmetic15 {
+
+public class Arithmetic15 {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 4, 4, 5, 4, 4, 6, 8};
