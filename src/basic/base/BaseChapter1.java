@@ -2,6 +2,8 @@ package basic.base;
 
 import basic.tools.SystemUtils;
 
+import java.util.Random;
+
 public class BaseChapter1 {
 
     private static int[] datas = {1, 2, 3, 4, 5, 6};
@@ -19,6 +21,8 @@ public class BaseChapter1 {
 
         int[] reverseIndex = reverseIndex();
         SystemUtils.printIntdatas(reverseIndex);
+
+        random();
 
     }
 
@@ -121,6 +125,39 @@ public class BaseChapter1 {
             }
         }
         return true;
+    }
+
+    /**
+     * 通过递归调用二分查找，数据需要是有序的（从小到大）
+     *
+     * @param index
+     * @param datas
+     * @return
+     */
+    private static int binarySearch(int index, int[] datas) {
+        return binarySearch(index, datas, 0, datas.length - 1);
+    }
+
+    private static int binarySearch(int index, int[] datas, int low, int high) {
+        if (low > high) return -1;
+        int mid = (low + high) / 2;
+        if (index < mid) {
+            return binarySearch(index, datas, low, mid - 1);
+        } else if (index > mid) {
+            return binarySearch(index, datas, mid + 1, high);
+        } else if (index == mid) {
+            return mid;
+        }
+        return mid;
+
+    }
+
+    private static void random() {
+        Random random = new Random();
+        for (int i =0;i<100;i++) {
+            int nextInt = random.nextInt(4);
+            SystemUtils.println("随机数是："+nextInt);
+        }
     }
 
 
